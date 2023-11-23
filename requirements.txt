@@ -1,0 +1,6 @@
+flask
+bcrypt
+Flask-SQLAlchemy
+gradio
+cryptography
+pycryptodome
