@@ -57,13 +57,13 @@ def generate_diffie_hellman_key_pair(user_name):
             connection.close()
             return "Key pair generated and stored in the database."
 
-iface = gr.Interface(
-    fn=generate_diffie_hellman_key_pair,
-    inputs="text",
-    outputs="text",
-    layout="vertical",
-    title="Diffie-Hellman Key Pair Generation",
-    description="Generate and store a unique Diffie-Hellman key pair for a user in an SQLite database.",
-)
+# iface = gr.Interface(
+#     fn=generate_diffie_hellman_key_pair,
+#     inputs="text",
+#     outputs="text",
+#     layout="vertical",
+#     title="Diffie-Hellman Key Pair Generation",
+#     description="Generate and store a unique Diffie-Hellman key pair for a user in an SQLite database.",
+# )
 
-iface.launch(share=True)
+# iface.launch(share=True)

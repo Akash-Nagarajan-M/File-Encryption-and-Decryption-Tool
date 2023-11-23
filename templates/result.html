@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Encryption and Decryption - Result</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 50px auto;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        span {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="/">Go Back</a>
+    </div>
+
+    <div class="card">
+        <h1>File Processed Successfully!</h1>
+
+        {% if result_file %}
+        <p>Download your processed file:</p>
+        <span>{{result_file|basename}}</span>
+        <a href="{{ url_for('download_file', filename=result_file|basename) }}" download>Download File</a>
+        {% else %}
+        <p>{{ result_message }}</p>
+        {% endif %}
+    </div>
+</body>
+
+</html>
