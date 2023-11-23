@@ -47,7 +47,7 @@ def generate_rsa_key_pair():
 # Function to handle both encryption and decryption
 def process_file(input_file, sender_name, receiver_name, mode):
     # Fetch sender's private key and receiver's public key from the database
-    connection = sqlite3.connect("user_keys.db")
+    connection = sqlite3.connect("database.db")
     cursor = connection.cursor()
     cursor.execute(
         "SELECT private_key FROM user_keys WHERE user_name = ?", (sender_name,)

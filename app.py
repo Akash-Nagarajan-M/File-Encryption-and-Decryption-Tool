@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, session, send_file
+from flask import Flask, request, render_template, redirect, session, send_file, url_for
 from flask_sqlalchemy import SQLAlchemy
 from file_encr import process_file
 from keygen import generate_diffie_hellman_key_pair
@@ -36,7 +36,7 @@ with app.app_context():
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return redirect(url_for("login"))
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -47,7 +47,11 @@ def register():
         email = request.form["email"]
         password = request.form["password"]
 
-        new_user = User(name=name, email=email, password=password)
+        new_user = User(
+            name=name,
+            email=email,
+            password=password,
+        )
         db.session.add(new_user)
         db.session.commit()
         generate_diffie_hellman_key_pair(name)
